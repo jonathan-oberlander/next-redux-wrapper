@@ -1,6 +1,7 @@
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 import { sendMessage, deleteMessage } from '../store/actions';
 import { NextPage } from 'next';
+import { wrapper } from '../store/store';
 
 const HomePage: NextPage = () => {
 
@@ -17,10 +18,15 @@ const HomePage: NextPage = () => {
       <button onClick={msg}>Dispatch</button>
       <button onClick={del}>Remove</button>
       <hr />
-      <div>{JSON.stringify(appState, null, 2)}</div>
+      <pre>{JSON.stringify(appState, null, 2)}</pre>
     </>
   );
 
 };
 
 export default HomePage;
+
+export const getStaticProps = wrapper.getStaticProps(({ store }) => {
+  store.dispatch(sendMessage("sent from get static Props"));
+  return {};
+});
