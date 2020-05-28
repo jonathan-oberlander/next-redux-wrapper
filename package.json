@@ -1,5 +1,5 @@
 {
-  "name": "static-next-redux-wrapper",
+  "name": "next-redux-wrapper",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
