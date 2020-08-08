@@ -1,7 +1,8 @@
 // all actions enum
 export enum Actions {
-  SEND_MESSAGE = 'SEND_MESSAGE',
-  DELETE_MESSAGE = 'DELETE_MESSAGE',
+  SEND_MESSAGE = "SEND_MESSAGE",
+  DELETE_MESSAGE = "DELETE_MESSAGE",
+  UPDATE_MESSAGE = "UPDATE_MESSAGE",
 }
 
 // base types
@@ -17,5 +18,13 @@ interface DeleteMessageAction {
   type: typeof Actions.DELETE_MESSAGE;
 }
 
+export interface UpdateMessageAction {
+  type: typeof Actions.UPDATE_MESSAGE;
+  payload: Message;
+}
+
 // all types union
-export type ActionTypes = SendMessageAction | DeleteMessageAction;
+export type ActionTypes =
+  | SendMessageAction
+  | DeleteMessageAction
+  | UpdateMessageAction;
